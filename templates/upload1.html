@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<head>
+	<title>Upload Section</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>-->
+	<script src="/static/software_files/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			margin-bottom: 0;
+
+		}
+		.header{
+           display: flex;
+          flex-direction: column;
+          text-align: center; 
+		}
+		.heading{
+			background-color: #fce043;
+            background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+			padding: 1%;
+            flex: 50%;
+            font-size: 220%;
+            font-family: Sans-serif,monospace;
+            font-weight: bold;
+		}
+		.form{
+			background-color: #dae4ee;
+			padding: 1%;
+            flex: 50%;
+            font-size: 120%;
+            margin: 15%;
+            border: 5px solid #DAA520;
+            border-radius: 4px;
+            width: auto;
+
+        }
+        .Footer{
+        	position: fixed;
+   			left: 0;
+  			 bottom: 0;
+   			width: 100%;
+   			background-color: #fce043;
+            background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+   			color: black;
+   			text-align: center;
+   			font-size: 100%;
+   			height: 10%;
+   			font-weight:bold;
+   			text-decoration: none;
+        }
+
+        .button1{
+        	text-decoration: none;
+        	border-radius: 4px;
+			font-size: 100%;
+			font-weight: normal;
+			background-color: #DAA520;
+			padding:0.8%;
+			 transition: all 0.2s ease-in-out;
+			color: ;
+		}
+		.button1:hover {
+            color: rgba(255, 255, 255, 1);
+             box-shadow: 0 5px 15px pink;
+              }
+        .button{
+			font-size: 100%;
+			color: #DAA520;
+			padding:0.5%;
+			border-radius: 4px;
+		}
+		@media (max-width: 800px) {
+        .heading{
+        	font-size: 150%;
+        	padding: 3%;
+         }
+         .button1{
+			font-size: 80%;
+		}
+		.button{
+			font-size: 80%;
+		}
+        }
+        @media (max-width: 550px) {
+        .heading{
+        	font-size: 150%;
+        	padding: 4%;
+         }
+         .button1{
+			font-size: 70%;
+		}
+		.button{
+			font-size: 70%;
+		}
+        }
+        @media (max-width: 400px) {
+        .heading{
+        	font-size: 120%;
+        	padding: 5%;
+         }
+         .button1{
+			font-size: 65%;
+		}
+		.button{
+			font-size: 65%;
+		}
+        }
+
+       .backvideo{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -1;
+		}
+		@media(min-aspect-ratio:16/9)
+		{
+			.backvideo{
+				width: 100%;
+				height: auto;
+			}
+		}
+		@media(max-aspect-ratio:16/9)
+		{
+			.backvideo{
+				width: auto;
+				height: 100%;
+			}
+		}
+		
+
+        .loading{
+        	margin-top: 10%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text{
+	
+  font-size: 150%;
+  font-weight:;
+  text-align: center;
+  color: #999;
+  margin-bottom: ;
+}
+.add{
+  animation: animate .7s ease-in-out .1s;
+}
+@keyframes animate {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.2;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.progress-bar{
+  width: 14.7rem;
+  height: 1.5rem;
+  background: white;
+  border-radius: 13px;
+  padding: 1%;
+}
+.progress{
+  width:0px;
+  height: 1.2rem;
+  background-color: #fff000;
+  background-image: linear-gradient(315deg, #fff000 0%, #ed008c 74%);
+  border-radius: 13px;
+}
+.percent{
+  position: absolute;
+  left: 45%;
+  color: black;
+  font-size: 100%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 150%;
+}
+.text1{
+	position: absolute;
+  font-size: 100%;
+  text-align: center;
+  color: #999;
+  top:200%;
+  
+}
+
+	</style>
+	<script>
+/*function fileValidation() {
+            var fileInput = document.getElementById('file');
+
+             
+            var filePath = fileInput.value;
+            console.log(filePath);
+            // Allowing file type
+            var allowedExtensions = 
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+              
+            if (!allowedExtensions.exec(filePath)) {
+                console.log("Not permitted");
+            }
+            
+        }*/
+$(document).ready(function() {
+ 
+	
+
+	$('form').on('submit', function(event) {
+
+		event.preventDefault();
+
+		var formData = new FormData($('form')[0]);
+		console.log(formData.get('file'));
+        var f=formData.get('file')
+        console.log(f.name);
+        var n=f.name;
+        var l=n.length;
+
+
+
+         //var type=(f.type);
+          //var validFileExtensions = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
+          //if ($.inArray(extension, validFileExtensions) == -1) 
+		$.ajax({
+			xhr : function() {
+				var xhr = new window.XMLHttpRequest();
+
+				xhr.upload.addEventListener('progress', function(e) {
+
+					if (e.lengthComputable) {
+                        console.log(l);
+						console.log('Bytes Loaded: ' + e.loaded);
+						console.log('Total Size: ' + e.total);
+						console.log('Percentage Uploaded: ' + (e.loaded / e.total))
+                        var loaded=(e.loaded)/1000000;
+                        var total=(e.total)/1000000;
+						var percent = Math.round((e.loaded / e.total) * 100);
+                        if(l!=0){
+						$('#progressBar').css('width', percent + '%');
+                        $('#Percentage').text(percent + '%');
+                        $('#Text').text('Uploading');
+                        $('#Text1').text(loaded+' '+'MB' +'  '+ '/'+'  '+total+' '+ 'MB');
+                        if(percent==100)
+                        {
+                        	$('#Text').text("Uploaded");
+                        }
+                    }
+                        else{
+						$('#Text').text("Please Select A File");
+					}
+
+					}
+					
+	
+			
+
+				});
+                
+				return xhr;
+
+			},
+			type : 'POST',
+			url : '/u',
+			data : formData,
+			processData : false,
+			contentType : false,
+			success: function (data) {  
+            // The file was uploaded successfully...  
+            alert('File uploaded!');
+         },  
+         error: function (data) {  
+         // there was an error.  
+          alert('File upload Failed');
+      }   
+		});
+	
+
+	});
+
+});
+
+
+</script>
+</head>
+<body>
+		<video class="backvideo" autoplay loop muted plays in-line>
+			<source src="{{ url_for('static',filename='software_files/video.mp4')}}" type="video/mp4">
+		</video>
+	<div class="header">
+		<div class="heading">Upload Your Files From Here
+		</div>
+		<div class="form">
+			<form method=POST enctype=multipart/form-data action="/u">
+             <input type=file name=file id="file" class="button" ><br>
+             <button type="submit" class="button1">Upload</button>
+            </form>
+        </div>
+	</div>
+	<div class="loading">
+      <div class="text" id="Text"></div>
+       <label class="percent" id="Percentage"></label>
+      <div class="progress-bar">
+        <div class="progress" id="progressBar"></div>
+      </div>
+      <div class="text1" id="Text1"></div>
+    </div>
+	<div class="Footer">
+        	<footer>----<br>EasyFileTransfer(EFT) By SDG-COOL-TECH<br>----</footer>
+        </div>
+</body>
+</html>

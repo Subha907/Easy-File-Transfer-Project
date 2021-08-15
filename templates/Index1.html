@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+	<!--<link rel="stylesheet" href="{{ url_for('static',filename='/software_files/css/bootstrap.min.css')}}"/>-->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+
+		}
+		.header{
+            display: flex;
+          flex-direction: column;
+          text-align: center;
+          background-color: yellow;
+		}
+		.backvideo{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			min-width: 100%;
+			min-height:100% ;
+			width: auto;
+			height: auto;
+			z-index: -1;
+		}
+		@media(min-aspect-ratio:16/9)
+		{
+			.backvideo{
+				width: 100%;
+				height: auto;
+			}
+		}
+		@media(max-aspect-ratio:16/9)
+		{
+			.backvideo{
+				width: auto;
+				height: 100%;
+			}
+		}
+		.H1{
+			background-color: #fce043;
+            background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+			padding: 1%;
+            flex: 50%;
+            font-size: 100%;
+            font-family: Sans-serif,monospace;
+            font-weight: bold;
+            color: white;
+		}
+
+		.Product-Description{
+            display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 1%;
+
+          background-color: ;
+		}
+		.Product h2{
+			margin-top: 10%;
+
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 180%;
+			color: #04bfbf;
+		}
+		p{
+			font-size: 120%;
+			text-decoration: none;
+			color: white;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+         .Product-link h2{
+			margin-top: 5%;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 180%;
+			color: #04bfbf;
+		}
+
+		.comment-section{
+            display: flex;
+          flex-direction: column;
+          margin-top:5%;
+          text-align: center;
+          background-color: yellow;
+		}
+		..comment-section h2{
+
+			flex: 1%;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 100%;
+			color: #04bfbf;
+		}
+
+		.comment-section-users{
+            display: flex;
+          flex-direction: column;
+          margin-top:0%;
+          text-align: center;
+           background-color:white ;
+           height: 8rem;
+		}
+        .comment-section-users .form{
+        	font-family: Arial, Helvetica, sans-serif;
+			font-size: 100%;
+			color: #04bfbf;
+        }
+
+        .txtarea{
+        	width: 30vw;
+        	height: 10vh;
+        	box-sizing: border-box;
+            border: 3px solid #ccc;
+        }
+        .usrname{
+        	box-sizing: border-box;
+            border: 3px solid #ccc;
+        }
+
+        .user-Description{
+            display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          height: 100%;
+          background-color:white;
+          margin-bottom: 10%;
+		}
+        .user-comments h2{
+			margin-top: ;
+			text-decoration: none;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 100%;
+			color: #04bfbf;
+			margin-left: 1%;
+
+		}
+
+		.user-Description .all-comments{
+			font-size: 100%;
+			margin-left: 2%;
+			text-decoration: none;
+			color: black;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.user-Description .all-comments p{
+
+			color: black;
+
+		}
+
+		.button {
+  border-radius: 6px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 100%;
+  padding: 0.9%;
+  width: 15rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.Footer{
+        	position: fixed;
+   			left: 0;
+  			 bottom: 0;
+   			width: 100%;
+   			background-color: #fce043;
+            background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+   			color: white;
+   			text-align: center;
+   			font-size: 100%;
+   			height: 10%;
+   			font-weight:bold;
+   			text-decoration: none;
+
+        }
+     label{
+     	color: red;
+     }
+    .comment-section-users .flash .success .successmsg{
+     	size: 80%;
+     	color: #008000;
+     	padding: 0.5%;
+     	background-color: #bff8b0;
+
+     }
+     .comment-section-users .flash .warning .warningmsg{
+     	size: 80%;
+     	color: #B35959;
+     	padding: 0.5%;
+     	background-color: #FFCCCC;
+
+     }
+	</style>
+</head>
+<body>
+
+	<video autoplay loop class="backvideo" muted plays in-line >
+		<source src="static/software_files/video.mp4" type="video/mp4">
+	</video>
+	<div class="header">
+	<div class="H1">
+		<h1>Welcome To Easy File Transfer</h1>
+	</div>
+     </div>
+     <div class="Product-Description">
+	 <div class="Product">
+	     <h2>Product Details</h2>
+	     <br>
+         <p>Hi, I am Subhadeep Ghosh, the creator of the product Easy File Transfer (EFT).<br>
+         	<B>Why EFT?</B><br>
+         	This EFT provides you a file sharing server, that will help to transfer files between devices on the same network.It will only work in a Home LAN network.<br>
+
+         </p>
+     </div>
+     <div class="Product-link">
+         <h2>Product link</h2>
+         <p>Download the .exe file from the below link [only for windows]<br><br>
+          <a href="https://drive.google.com/file/d/1966vKePMws-3P2RVvymdTPOi14X4X5KD/view?usp=sharing"><button class="button"><span>Download EXE</span></button>
+         </a>
+         <br>
+         <br>
+          Use the product and give your feedbacks to the below comment section &#128071;
+         </p>
+	 </div>
+     </div>
+	<div class="comment-section">
+			<h2>Comment Section</h2>
+	</div>
+
+    <div class="comment-section-users">
+		<div class="form">
+			<form action="/comment" method="POST">
+
+  		<!--	* Comment Box:<textarea class="txtarea" name="comment"></textarea><br>-->
+			 Comment Box:<input type="text" class="txtarea" name="comment"><br>
+			* Name: <input type="text" name="usrname" class="usrname">
+			<input type="submit">
+			<!--<a href="/u"><button class="button" type="submit"><span>Post Comment</span></button>-->
+			</form><br><br>
+		</div>
+
+        <div class="flash">
+		<div class="success">
+        {% with errors = get_flashed_messages(category_filter=["success"]) %}
+            {% if errors %}
+                {%- for message in errors %}
+
+                   <p class="successmsg">{{message}}</p>
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="warning">
+        {% with errors = get_flashed_messages(category_filter=["warning"]) %}
+            {% if errors %}
+                {%- for message in errors %}
+                   <p class="warningmsg">{{message}}</p>
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+    </div>
+    </div>
+
+	</div><br><br>
+
+    <div class="user-Description">
+    	<div class="user-comments">
+    		<h2>Comments</h2>
+    	</div>
+    	<div class="all-comments">
+    		{% for j in data %}
+              <p>{{j[1]}}</p>
+              <label><B>by {{j[0]}}</B></label>
+              <br><br>
+            {% endfor %}
+    	</div>
+    </div>
+
+	<div class="Footer">
+        	<footer>----<br>EasyFileTransfer(EFT) By SDG-COOL-TECH<br>----</footer>
+        </div>
+
+</body>
+</html>

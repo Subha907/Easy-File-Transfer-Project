@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+            display: flex;
+          flex-direction: column;
+          text-align: center; 
+          
+		}
+		.backvideo{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -1;
+		}
+		@media(min-aspect-ratio:16/9)
+		{
+			.backvideo{
+				width: 100%;
+				height: auto;
+			}
+		}
+		@media(max-aspect-ratio:16/9)
+		{
+			.backvideo{
+				width: auto;
+				height: 100%;
+			}
+		}
+		.H1{
+			background-color: #fce043;
+            background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+			padding: 1%;
+            flex: 50%;
+            font-size: 100%;
+            font-family: Sans-serif,monospace;
+            font-weight: bold;
+            color: white;
+		}
+		.Internet{
+			margin-top: 17%;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 22px;
+			flex: 50%;
+			color: #00ffff;
+		}
+		p{
+			margin-top:5%;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 18px;
+			flex: 50%;
+			color: white;
+		}
+		
+		
+		.button {
+  border-radius: 6px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 100%;
+  padding: 0.9%;
+  width: 15rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.Footer{
+        	position: fixed;
+   			left: 0;
+  			 bottom: 0;
+   			width: 100%;
+   			background-color: #fce043;
+            background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+   			color: white;
+   			text-align: center;
+   			font-size: 100%;
+   			height: 10%;
+   			font-weight:bold;
+   			text-decoration: none;
+        }
+
+	</style>
+</head>
+<body>
+	
+	<video autoplay loop class="backvideo" muted plays in-line >
+		<source src="static/software_files/video.mp4" type="video/mp4">
+	</video>
+	<div class="header">
+	<div class="H1">
+		<h1>Welcome To Easy File Transfer</h1>
+	</div>
+
+	 <div class="Internet">
+	     <h2>File Transfer Over LAN</h2>
+	     <br>
+         <a href="/u"><button class="button"><span>Upload Section</span></button>
+         </a>
+         <a href="/gallery"><button class="button"><span>Gallery</span></button></a>
+	 </div>
+     <div class="Website">
+     	<p>Feel free to give your feedback<br> Feedback link >> <a href="#"  style="color:#00ffff;">Visit</a>
+     	</p>
+     </div>
+	</div>
+	<div class="Footer">
+        	<footer>----<br>EasyFileTransfer(EFT) By SDG-COOL-TECH<br>----</footer>
+        </div>
+	
+</body>
+</html>

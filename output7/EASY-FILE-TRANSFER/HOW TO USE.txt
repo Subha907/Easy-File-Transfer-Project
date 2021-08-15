@@ -1,0 +1,16 @@
+------HOW TO INSTALL -----
+just double click on the EASY-FILE-TRANSFER.exe to install.
+
+
+
+--------HOW TO USE IT--------
+1. After installing the exe , just open EASY-FILE-TRANSFER folder ,where you have installed and double click on uploadpy.exe
+2. Then a black console will open and a IP will be provided below.
+3. Just use this IP on browser to render the application.
+
+-------NOTICE------
+
+1. IF you want to share your files then just copy your files to "EASY-FILE-TRANSFER/static/myfiles" directory
+
+2. If you want to upload your files through our upload section, then after uploading the files gets stored in "EASY-FILE-TRANSFER/static/myfiles"
+
